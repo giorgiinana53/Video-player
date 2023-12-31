@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/c891029cf9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./styles.css">
+    <title>Video Player</title>
+</head>
+
+<body>
+    <br>
+    <h4 class="title">
+        Video player
+    </h4>
+    <br>
+    <div id="videoContainer">
+        <video id="video">
+            <source src="video.mp4" type="video/mp4">
+        </video>
+        <div class="controls">
+            <div class="controls__timeline--container">
+                <div class="controls__timeline--container__timeline">
+                    <div class="controls__timeline--container__timeline__thumb--indicator"></div>
+                </div>
+            </div>
+            <div id="bothSide">
+                <div class="controls__leftSide">
+                    <div class="controls__leftSide__play--pause">
+                        <button id="playBtn">
+                            <i class="fa fa-play" aria-hidden="true"></i>
+                        </button>
+                        <button id="pauseBtn">
+                            <i class="fa fa-pause" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="controls__leftSide__voice">
+                        <button id="voiceOnBtn">
+                            <i class="fa fa-volume-up" aria-hidden="true"></i>
+                        </button>
+                        <button id="voiceDownBtn">
+                            <i class="fa fa-volume-down" aria-hidden="true"></i>
+                        </button>
+                        <button id="voiceOffBtn">
+                            <i class="fa fa-volume-off" aria-hidden="true"></i>
+                        </button>
+                        <input type="range" id="range" min="0" max="1" value="1" step="any">
+                    </div>
+                    <div style="display: flex; color: white; margin-top: 2px;" class="controls__leftSide__timer">
+                        <div id="timer">0:00</div>
+                        /
+                        <div id="videoLength">0:00</div>
+                    </div>
+                </div>
+                <div class="controls__rightSide">
+                    <div>
+                        <button id="setting">
+                            <i class="fa fa-cog" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div>
+                        <button id="fullScreen">
+                            <i class="fa fa-arrows-alt" aria-hidden="true"></i>
+                        </button>
+                        <button id="lessFullScreen">
+                            <i class="fa fa-compress" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="settings--container">
+                <details>
+                    <summary id="summary">
+                        <div class="settings--container__speed">
+                            <i style="margin-right: 5px;" class="fa fa-clock-o" aria-hidden="true"></i>
+                            <h4> Playback speed</h4>
+                        </div>
+                        <i id="triangle" class="fa fa-chevron-right" aria-hidden="true"></i>
+                    </summary>
+                    <ul>
+                        <li id="slow"><a href="#">0.5x</a></li>
+                        <li id="normal"><a href="#">1x</a></li>
+                        <li id="fast"><a href="#">1.5x</a></li>
+                        <li id="faster"><a href="#">2x</a></li>
+                    </ul>
+                </details>
+            </div>
+        </div>
+        <script src="/app.js"></script>
+</body>
+
+</html>

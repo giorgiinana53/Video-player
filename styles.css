@@ -1,0 +1,228 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #def2f1;
+    height: 100vh;
+    margin: 0 15px;
+    font-family: sans-serif;
+}
+
+.title {
+    text-align: center;
+    font-size: 30px;
+    color: #2b7a78;
+}
+
+#videoContainer {
+    position: relative;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+#summary {
+    display: flex;
+    transform: rotate(0deg);
+    transition: 0.5s;
+    list-style: none;
+}
+
+
+#video {
+    width: 100%;
+    height: 100%;
+}
+
+.controls {
+    padding: 5px;
+    position: absolute;
+    background-color: rgba(75, 75, 75, 0.4);
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#bothSide {
+    display: flex;
+    justify-content: space-between;
+}
+
+.controls__leftSide__voice, .controls__leftSide {
+    display: flex;
+}
+
+button {
+    border: none;
+    font-size: 20px;
+    width: 20px;
+    color: rgb(221, 221, 221);
+    background: none;
+    cursor: pointer;
+}
+
+.controls__leftSide__voice button, input{
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+#range {
+    width: 0;
+    height: 5px;
+    transition: 0.2s ease-in-out;
+    transform-origin: left;
+    margin-top: 8px;
+
+    transform: scaleX(0);
+    align-items: center;
+}
+
+.controls__leftSide__voice:hover #range {
+    width: 100px;
+    transform: scaleX(1);
+}
+
+.controls__rightSide {
+    display: flex;
+}
+
+ul {
+    list-style: none;
+}
+
+li, a {
+    text-decoration: none;
+    color: white;
+    margin: 5px 0;
+}
+
+.controls__rightSide div {
+    margin: 0 5px;
+}   
+
+.settings--container {
+    position: absolute;
+    display: flex;
+    padding: 10px 20px;
+    align-items: center;
+    justify-content: space-between;
+    right: 5px;
+    bottom: 40px;
+    background-color:rgba(41, 41, 41, 0.8);
+    color: white;
+    transform: scale(0);
+}
+
+.settingsContainerShow {
+    transform: scale(1);
+}
+
+.settings--container div {
+    margin: 0 10px;
+}
+
+.settings--container__speed {
+    display: flex;
+    transform: scale(1);
+}
+
+
+#setting {
+    transition: 0.1s ease-in-out;
+}
+
+.settingAnimation {
+    transform: rotate(45deg);
+}
+
+.controls__timeline--container {
+    height: 7px;
+    margin-inline: 0.4rem;
+    margin-bottom: 4px;
+}
+
+.controls__timeline--container__timeline {
+    background-color: rgb(100, 100, 100);
+    height: 3px;
+    width: 100%;
+    position: relative;
+}
+
+.controls__timeline--container__timeline::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: calc( 100% - var(--preview-position) * 100%);
+    background-color: rgb(177, 177, 177);
+    display: none;
+}
+
+.controls__timeline--container__timeline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: calc( 100% - var(--progress-position) * 100%);
+    background-color: #017ab6;
+}
+
+.controls__timeline--container__timeline__thumb--indicator {
+    --scale: 0;
+    position: absolute;
+    height: 200%;
+    transform: translateX(-50%) scale(var(--scale));
+    top: -50%;
+    left: calc(var(--progress-position) * 100%);
+    transition: transform 150ms ease-in-out;
+    background-color:  #017ab6;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+
+}
+
+.controls__timeline--container:hover .controls__timeline--container__timeline::before,
+.controls__timeline--container.scrubbing .controls__timeline--container__timeline::before {
+    display: block;
+}
+
+.controls__timeline--container:hover .controls__timeline--container__timeline__thumb--indicator,
+.controls__timeline--container.scrubbing .controls__timeline--container__timeline__thumb--indicator {
+    --scale:1;
+}
+
+.controls__timeline--container:hover .controls__timeline--container__timeline,
+.controls__timeline--container.scrubbing .controls__timeline--container__timeline {
+    height: 100%;
+}
+
+
+#voiceDownBtn,
+#pauseBtn,
+#voiceOffBtn,
+#lessFullScreen {
+    display: none;
+}
+
+.settings--container__speedAnimation {
+    transform: scale(0);
+}
+
+.triangleAnimation {
+    position: absolute;
+    transform: rotate(90deg);
+    left: 0;
+    top: 0;
+}
+
+@media screen and (max-width: 400px) {
+    #videoContainer {
+        width: 100%;
+    }
+}
